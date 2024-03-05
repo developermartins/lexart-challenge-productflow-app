@@ -1,8 +1,6 @@
 const StatusCodes = require('http-status-codes');
 const cookieParser = require( 'cookie-parser');
-// const { Sequelize, DataTypes } = require('sequelize');
 const express = require('express');
-require('dotenv').config();
 
 const app = express();
 const PORT = 3001;
@@ -12,21 +10,6 @@ app.use(cookieParser());
 app.use(express.urlencoded({
   extended: true,
 }));
-
-// const sequelize = new Sequelize(process.env.POSTGRES_DATABASE, process.env.POSTGRES_USER, process.env.POSTGRES_PASSWORD, {
-//   host: process.env.POSTGRES_HOST,
-//   dialect: 'postgres',
-//   dialectOptions: {
-//     ssl: {
-//       require: true,
-//       rejectUnauthorized: false,
-//     },
-//   },
-// });
-
-// sequelize.authenticate()
-//   .then(() => console.log('DB connected'))
-//   .catch(err => console.log('Error ' + err))
 
 
 //   const User = sequelize.define('User', {
