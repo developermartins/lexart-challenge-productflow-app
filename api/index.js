@@ -1,8 +1,7 @@
 const ErrorMiddleware = require('./src/middlewares/errorMiddleware');
-const StatusCodes = require('http-status-codes');
+const authRoutes = require('./src/routes/auth.route');
 const cookieParser = require( 'cookie-parser');
 const express = require('express');
-const authRoutes = require('./src/routes/auth.route');
 
 const app = express();
 const PORT = 3001;
