@@ -1,4 +1,5 @@
 const ErrorMiddleware = require('./src/middlewares/errorMiddleware');
+const productRoutes = require('./src/routes/product.route');
 const authRoutes = require('./src/routes/auth.route');
 const cookieParser = require( 'cookie-parser');
 const express = require('express');
@@ -13,6 +14,7 @@ app.use(express.urlencoded({
 }));
 
 app.use(authRoutes);
+app.use(productRoutes);
 app.use(ErrorMiddleware);
 
 app.listen(PORT, () => {

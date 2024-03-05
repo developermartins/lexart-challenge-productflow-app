@@ -8,7 +8,7 @@ const Product = db.define('Product', {
     primaryKey: true,
     type: Sequelize.INTEGER
   },
-  productName: {
+  name: {
     type: DataTypes.STRING,
     allowNull: false
   },
