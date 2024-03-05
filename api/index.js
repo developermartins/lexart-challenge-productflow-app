@@ -1,6 +1,8 @@
 const StatusCodes = require('http-status-codes');
 const cookieParser = require( 'cookie-parser');
 const express = require('express');
+const db = require('./src/config/config');
+const User = require('./src/models/user.model');
 
 const app = express();
 const PORT = 3001;
@@ -16,17 +18,16 @@ app.get('/', (req, res) => {
 });
 
 
-// app.post('/register', async (req, res) => {
+app.post('/register', async (req, res) => {
   
-//   const { username, email, password } = req.body
+  const { username, email, password } = req.body
 
-//   await sequelize.sync();
+  await db.sync();
 
-//   const createdUser = await User.create({ username, email, password })
+  const createdUser = await User.create({ username, email, password })
 
-//   console.log(createdUser)
-
-// })
+  console.log(createdUser)
+})
 
 
 app.listen(PORT, () => {
