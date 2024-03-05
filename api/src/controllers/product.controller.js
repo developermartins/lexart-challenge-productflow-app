@@ -33,9 +33,20 @@ const addProduct = rescue(async (req, res, _next) => {
   return res.status(StatusCodes.OK).json(newProduct);
 });
 
+const updateProduct = rescue(async (req, res, _next) => {
+
+  const { id } = req.params;
+  const { name, brand, model, price, color } = req.body;
+
+  const newProduct = await product.updateProduct(id, name, brand, model, price, color);
+
+  return res.status(StatusCodes.OK).json(newProduct);
+});
+
 module.exports = {
   getAllProducts,
   getProductById,
   getProductByOthers,
   addProduct,
+  updateProduct,
 };

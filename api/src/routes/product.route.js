@@ -9,7 +9,7 @@ router.get('/products/others', product.getProductByOthers);
 
 router.post('/product/new', product.addProduct);
 
-router.put('/products', product.getProducts);
+router.put('/product/update/:id', product.updateProduct);
 
 // router.delete('/products', product.getProducts);
 

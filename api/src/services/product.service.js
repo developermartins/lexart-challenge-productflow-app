@@ -36,9 +36,23 @@ const addNewProduct = async (name, brand, model, price, color) => {
   return newProduct;
 };
 
+const updateProduct = async (id, name, brand, model, price, color) => {
+
+  const updatedProduct = await Product.update({ name, brand, model, price, color }, {
+    where: {
+      id
+    },
+    returning: true,
+    plain: true
+  });
+
+  return updatedProduct;
+};
+
 module.exports = {
   getAllProducts,
   getProductById,
   getProductByOthers,
   addNewProduct,
+  updateProduct,
 };
