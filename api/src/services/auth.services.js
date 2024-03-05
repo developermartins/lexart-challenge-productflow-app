@@ -98,12 +98,9 @@ const registerUser = async (username, email, password) => {
 
   const token = jwt.sign({ id: createdUser.id }, process.env.JWT);
 
-  const createdUserData = {
-    username: createdUser.dataValues.username,
-    email: createdUser.dataValues.email
-  };
+  const { password, ...others } = createdUser.dataValues;
 
-  if (createdUser) return { createdUserData, token };
+  if (createdUser) return { others, token };
 };
 
 const loginUser = async (username, loginPassword) => {
