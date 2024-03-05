@@ -11,27 +11,6 @@ app.use(express.urlencoded({
   extended: true,
 }));
 
-
-//   const User = sequelize.define('User', {
-//     // Model attributes are defined here
-//     username: {
-//       type: DataTypes.STRING,
-//       allowNull: false
-//     },
-//     email: {
-//       type: DataTypes.STRING
-//       // allowNull defaults to true
-//     },
-//     password: {
-//       type: DataTypes.STRING
-//       // allowNull defaults to true
-//     }
-//   }, {
-//     // Other model options go here
-//   });
-  
-
-
 app.get('/', (req, res) => {
   res.status(StatusCodes.OK).send('👌');
 });
