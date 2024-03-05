@@ -106,6 +106,27 @@ const registerUser = async (username, email, password) => {
   if (createdUser) return { createdUserData, token };
 };
 
+const loginUser = async (username, loginPassword) => {
+  const userPassword = validatePassword(loginPassword);
+
+  if (userPassword) return userPassword.err;
+
+  const user = await User.findOne({ where: { username: username } })
+
+  if (!user) return userDoesNotExist.err;
+
+  const compareSavedPassword = await bcrypt.compare(loginPassword, user.password);
+
+  if (!compareSavedPassword) return passwordDontMatch.err;
+
+  const token = jwt.sign({ id: user.id }, process.env.JWT);
+
+  const { password, ...others } = user.dataValues;
+
+  if (user) return { others, token };
+};
+
 module.exports = {
   registerUser,
+  loginUser,
 };
