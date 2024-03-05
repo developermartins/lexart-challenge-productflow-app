@@ -3,6 +3,7 @@ const cookieParser = require( 'cookie-parser');
 const express = require('express');
 const db = require('./src/config/config');
 const User = require('./src/models/user.model');
+const authRoutes = require('./src/routes/auth.route');
 
 const app = express();
 const PORT = 3001;
@@ -12,11 +13,6 @@ app.use(cookieParser());
 app.use(express.urlencoded({
   extended: true,
 }));
-
-app.get('/', (req, res) => {
-  res.status(StatusCodes.OK).send('👌');
-});
-
 
 app.post('/register', async (req, res) => {
   
@@ -29,6 +25,7 @@ app.post('/register', async (req, res) => {
   console.log(createdUser)
 })
 
+app.use(authRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
