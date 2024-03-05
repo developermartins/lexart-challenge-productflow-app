@@ -49,10 +49,18 @@ const updateProduct = async (id, name, brand, model, price, color) => {
   return updatedProduct;
 };
 
+const deleteProduct = async (id) => {
+
+  await Product.destroy({ where: { id } });
+
+  return;
+};
+
 module.exports = {
   getAllProducts,
   getProductById,
   getProductByOthers,
   addNewProduct,
   updateProduct,
+  deleteProduct,
 };

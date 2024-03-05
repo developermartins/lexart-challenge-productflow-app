@@ -43,10 +43,19 @@ const updateProduct = rescue(async (req, res, _next) => {
   return res.status(StatusCodes.OK).json(newProduct);
 });
 
+const deleteProduct = rescue(async (req, res, _next) => {
+  const { id } = req.params;
+
+  await product.deleteProduct(id);
+
+  return res.status(StatusCodes.OK).json('Product has been deleted...');
+});
+
 module.exports = {
   getAllProducts,
   getProductById,
   getProductByOthers,
   addProduct,
   updateProduct,
+  deleteProduct,
 };
