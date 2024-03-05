@@ -15,6 +15,13 @@ app.get('/', (req, res) => {
   res.status(StatusCodes.OK).send('👌');
 });
 
+app.post('/register', async (req, res) => {
+  const { username, email, password } = req.body;
+
+  console.log(username, email, password)
+
+})
+
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
 });
