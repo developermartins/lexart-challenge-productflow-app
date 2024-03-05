@@ -81,9 +81,9 @@ const validatePassword = (password) => {
   if (password.length < 8) return invalidPassword;
 };
 
-const registerUser = async (username, email, password) => {
+const registerUser = async (username, email, registerPassword) => {
   const userEmail = validateEmail(email);
-  const userPassword = validatePassword(password);
+  const userPassword = validatePassword(registerPassword);
 
   await db.sync();
 
@@ -92,7 +92,7 @@ const registerUser = async (username, email, password) => {
   if (await User.findOne({ where: { email: email } })) return uniqueUser.err;
 
   const salt = await bcrypt.genSalt(10);
-  const hashedPass = await bcrypt.hash(password, salt);
+  const hashedPass = await bcrypt.hash(registerPassword, salt);
 
   const createdUser = await User.create({ username, email, password: hashedPass })
 
