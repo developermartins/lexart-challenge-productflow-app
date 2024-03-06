@@ -30,7 +30,7 @@ const addProduct = rescue(async (req, res, _next) => {
 
   const newProduct = await product.addNewProduct(name, details, data, brand, model, price, color);
 
-  return res.status(StatusCodes.OK).json(newProduct);
+  return res.status(StatusCodes.CREATED).json(newProduct);
 });
 
 const updateProduct = rescue(async (req, res, _next) => {
