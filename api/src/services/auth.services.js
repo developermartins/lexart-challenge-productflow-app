@@ -1,3 +1,4 @@
+const StatusCodes = require('http-status-codes');
 const User = require('../models/user.model');
 const db = require('../config/config');
 const jwt = require('jsonwebtoken');
@@ -8,62 +9,50 @@ dotenv.config();
 
 const invalidEmail = {
   err: {
-    status: 400,
+    status: StatusCodes.BAD_REQUEST,
     message: '"email" must be a valid email',
   },
 };
 
 const requiredEmail = {
   err: {
-    status: 400,
+    status: StatusCodes.BAD_REQUEST,
     message: '"email" is required',
   },
 };
 
 const invalidPassword = {
   err: {
-    status: 400,
+    status: StatusCodes.BAD_REQUEST,
     message: 'The password must be at least 8 characters long',
   },
 };
 
 const passwordDontMatch = {
   err: {
-    status: 400,
+    status: StatusCodes.BAD_REQUEST,
     message: 'Invalid user password',
   },
 };
 
 const passwordIsRequired = {
   err: {
-    status: 400,
+    status: StatusCodes.BAD_REQUEST,
     message: '"password" is required',
   },
 };
 
 const uniqueUser = {
   err: {
-    status: 409,
+    status: StatusCodes.CONFLICT,
     message: 'User already registered',
   },
 };
 
 const userDoesNotExist = {
   err: {
-    status: 404,
+    status: StatusCodes.NOT_FOUND,
     message: 'User does not exist',
-  },
-};
-
-const tokenError = {
-  invalidErr: {
-    status: 400,
-    message: 'Invalid token.',
-  },
-
-  expiredErr: {
-    status: 400,
-    message: 'Token expired, generate a new one.',
   },
 };
 
