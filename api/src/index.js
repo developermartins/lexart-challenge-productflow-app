@@ -20,3 +20,5 @@ app.use(ErrorMiddleware);
 app.listen(PORT, () => {
   console.log(`Server is running...`);
 });
+
+module.exports = app;
