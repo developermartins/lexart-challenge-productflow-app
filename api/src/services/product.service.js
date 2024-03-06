@@ -1,7 +1,7 @@
 const { Op, } = require('sequelize');
 const Product = require('../models/product.model');
 
-function removeNull(object) {
+const removeNull = (object) => {
   for (var key in object) {
       if (object[key] === null) {
           delete object[key];
