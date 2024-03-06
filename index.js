@@ -3,10 +3,12 @@ const productRoutes = require('./routes/product.route');
 const authRoutes = require('./routes/auth.route');
 const cookieParser = require('cookie-parser');
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
 const PORT = 3001;
 
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({
