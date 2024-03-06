@@ -22,22 +22,38 @@ const Product = db.define('Product', {
     type: DataTypes.JSONB,
 
     get() {
-      return JSON.parse(this.getDataValue("details"));
+
+      if(this.getDataValue("details") !== undefined) {
+        return JSON.parse(this.getDataValue("details"));
+      }
+
     },
 
     set(value) {
-      return this.setDataValue("details", JSON.stringify(value));
+      
+      if(value !== undefined) {
+        return this.setDataValue("details", JSON.stringify(value));
+      }
+
     },
   },
   data: {
     type: DataTypes.JSONB,
 
     get() {
-      return JSON.parse(this.getDataValue("data"));
+
+      if(this.getDataValue("data") !== undefined) {
+        return JSON.parse(this.getDataValue("data"));
+      }
+
     },
 
     set(value) {
-      return this.setDataValue("data", JSON.stringify(value));
+      
+      if(value !== undefined) {
+        return this.setDataValue("data", JSON.stringify(value));
+      }
+
     },
   },
   price: {

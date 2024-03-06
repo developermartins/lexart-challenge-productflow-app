@@ -11,6 +11,7 @@ const db = new Sequelize(process.env.POSTGRES_DATABASE, process.env.POSTGRES_USE
       require: true,
       rejectUnauthorized: false,
     },
+    autoJsonMap: false,
   },
 });
 

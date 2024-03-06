@@ -52,9 +52,9 @@ const addNewProduct = async (name, details, data, brand, model, price, color) =>
   return product;
 };
 
-const updateProduct = async (id, name, brand, model, price, color) => {
+const updateProduct = async (id, name, details, data, brand, model, price, color) => {
 
-  const updatedProduct = await Product.update({ name, brand, model, price, color }, {
+  const updatedProduct = await Product.update({ name, details, data, brand, model, price, color }, {
     where: {
       id
     },
