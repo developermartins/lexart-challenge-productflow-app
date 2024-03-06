@@ -1,10 +1,22 @@
-const { Op } = require('sequelize');
+const { Op, } = require('sequelize');
 const Product = require('../models/product.model');
+
+function removeNull(object) {
+  for (var key in object) {
+      if (object[key] === null) {
+          delete object[key];
+      };
+  };
+  return object;
+};
+
 
 const getAllProducts = async () => {
   const products = (await Product.findAll()).reverse();
 
-  return products;
+  const productList = products.map((product) => removeNull(product.dataValues));
+
+  return productList;
 };
 
 const getProductByOthers = async (others) => {
@@ -22,18 +34,22 @@ const getProductByOthers = async (others) => {
 };
 
 const getProductById = async (id) => {
-  const product = await Product.findOne({ where: { id } });
+  const productFound = await Product.findOne({ where: { id } });
+
+  const product = removeNull(productFound.dataValues);
 
   return product;
 };
 
-const addNewProduct = async (name, brand, model, price, color) => {
+const addNewProduct = async (name, details, data, brand, model, price, color) => {
 
   await Product.sync();
 
-  const newProduct = await Product.create({ name, brand, model, price, color });
+  const newProduct = await Product.create({ name, details, data, brand, model, price, color });
 
-  return newProduct;
+  const product = removeNull(newProduct.dataValues);
+
+  return product;
 };
 
 const updateProduct = async (id, name, brand, model, price, color) => {

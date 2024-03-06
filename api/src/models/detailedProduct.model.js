@@ -13,7 +13,7 @@ const DetailedProduct = db.define('DetailedProduct', {
     allowNull: false
   },
   details: {
-    type: DataTypes.JSON,
+    type: DataTypes.JSONB,
     allowNull: false,
 
     get() {

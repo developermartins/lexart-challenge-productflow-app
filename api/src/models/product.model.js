@@ -14,11 +14,31 @@ const Product = db.define('Product', {
   },
   brand: {
     type: DataTypes.STRING,
-    allowNull: false
   },
   model: {
     type: DataTypes.STRING,
-    allowNull: false
+  },
+  details: {
+    type: DataTypes.JSONB,
+
+    get() {
+      return JSON.parse(this.getDataValue("details"));
+    },
+
+    set(value) {
+      return this.setDataValue("details", JSON.stringify(value));
+    },
+  },
+  data: {
+    type: DataTypes.JSONB,
+
+    get() {
+      return JSON.parse(this.getDataValue("data"));
+    },
+
+    set(value) {
+      return this.setDataValue("data", JSON.stringify(value));
+    },
   },
   price: {
     type: DataTypes.DECIMAL,
@@ -26,7 +46,6 @@ const Product = db.define('Product', {
   },
   color: {
     type: DataTypes.STRING,
-    allowNull: false
   },
 }, {
 

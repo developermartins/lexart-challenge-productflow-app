@@ -26,9 +26,9 @@ const getProductByOthers = rescue(async (req, res, _next) => {
 
 const addProduct = rescue(async (req, res, _next) => {
 
-  const { name, brand, model, price, color } = req.body;
+  const { name, details, data, brand, model, price, color } = req.body;
 
-  const newProduct = await product.addNewProduct(name, brand, model, price, color);
+  const newProduct = await product.addNewProduct(name, details, data, brand, model, price, color);
 
   return res.status(StatusCodes.OK).json(newProduct);
 });
