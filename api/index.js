@@ -1,7 +1,7 @@
 const ErrorMiddleware = require('./middlewares/errorMiddleware');
 const productRoutes = require('./routes/product.route');
 const authRoutes = require('./routes/auth.route');
-const cookieParser = require( 'cookie-parser');
+const cookieParser = require('cookie-parser');
 const express = require('express');
 
 const app = express();
