@@ -13,6 +13,10 @@ app.use(express.urlencoded({
   extended: true,
 }));
 
+app.get("/", (_req, res) => {
+  return res.json("Hello Vercel...");
+});
+
 app.use(authRoutes);
 app.use(productRoutes);
 app.use(ErrorMiddleware);
@@ -20,5 +24,3 @@ app.use(ErrorMiddleware);
 app.listen(PORT, () => {
   console.log(`Server is running...`);
 });
-
-module.exports = app;
