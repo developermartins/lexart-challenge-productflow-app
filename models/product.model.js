@@ -10,15 +10,19 @@ const Product = db.define('Product', {
   },
   name: {
     type: DataTypes.STRING,
+    allowNull: true,
   },
   brand: {
     type: DataTypes.STRING,
+    allowNull: true,
   },
   model: {
     type: DataTypes.STRING,
+    allowNull: true,
   },
   details: {
     type: DataTypes.JSONB,
+    allowNull: true,
 
     get() {
 
@@ -38,6 +42,7 @@ const Product = db.define('Product', {
   },
   data: {
     type: DataTypes.JSONB,
+    allowNull: true,
 
     get() {
 
@@ -57,9 +62,11 @@ const Product = db.define('Product', {
   },
   price: {
     type: DataTypes.DECIMAL,
+    allowNull: true,
   },
   color: {
     type: DataTypes.STRING,
+    allowNull: true,
   },
 }, {
 
