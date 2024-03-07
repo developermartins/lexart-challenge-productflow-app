@@ -10,7 +10,6 @@ const Product = db.define('Product', {
   },
   name: {
     type: DataTypes.STRING,
-    allowNull: false
   },
   brand: {
     type: DataTypes.STRING,
@@ -58,7 +57,6 @@ const Product = db.define('Product', {
   },
   price: {
     type: DataTypes.DECIMAL,
-    allowNull: false
   },
   color: {
     type: DataTypes.STRING,
