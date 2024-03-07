@@ -10,33 +10,12 @@ const removeNull = (object) => {
   return object;
 };
 
-function isJson(str) {
-  try {
-      JSON.parse(str);
-  } catch (e) {
-      return false;
-  }
-  return true;
-};
-
-const convertJson = (object) => {
-  for (var key in object) {
-    if (isJson(object[key])) {
-        JSON.parse(object[key]);
-    };
-  };
-    return object;
-};
-
-
 const getAllProducts = async () => {
   const products = (await Product.findAll()).reverse();
 
   const productList = products.map((product) => removeNull(product.dataValues));
 
-  const formatedData = productList.map((product) => convertJson(product));
-
-  return formatedData;
+  return productList;
 };
 
 const getProductByOthers = async (others) => {
