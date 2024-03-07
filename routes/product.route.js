@@ -6,7 +6,7 @@ router.get('/products', verifyToken, product.getAllProducts);
 
 router.get('/product/:id', verifyToken, product.getProductById);
 
-router.get('/products/others', verifyToken, product.getProductByOthers);
+router.get('/products/:others', verifyToken, product.getProductByOthers);
 
 router.post('/product/new', verifyToken, product.addProduct);
 

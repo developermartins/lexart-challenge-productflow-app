@@ -29,7 +29,9 @@ const getProductByOthers = async (others) => {
       }
   });
 
-  return product;
+  const productsFoundList = product.map((product) => removeNull(product.dataValues))
+
+  return productsFoundList;
 };
 
 const getProductById = async (id) => {

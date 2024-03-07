@@ -17,7 +17,7 @@ const getProductById = rescue(async (req, res, _next) => {
 });
 
 const getProductByOthers = rescue(async (req, res, _next) => {
-  const { others } = req.body;
+  const { others } = req.params;
 
   const requestedProduct = await product.getProductByOthers(others);
 
